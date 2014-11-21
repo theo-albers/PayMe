@@ -11,5 +11,10 @@ Adding Code Contracts support:
 - http://research.microsoft.com/en-us/projects/contracts/userdoc.pdf
 - Need to set the build configuration
 
+To add:
+- DI via Autofac http://blogs.msdn.com/b/roncain/archive/2012/07/16/dependency-injection-with-asp-net-web-api-and-autofac.aspx
+- AngularJS
+- dispose of DbContext
+
 To explore:
 - https://www.firebase.com/

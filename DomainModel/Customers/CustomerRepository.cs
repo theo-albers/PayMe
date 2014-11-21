@@ -8,6 +8,11 @@ namespace PayMe.DomainModel.Customers
     {
         private readonly CustomerDbContext _context;
 
+        public CustomerRepository() 
+            : this(new CustomerDbContext())
+        {
+        }
+
         public CustomerRepository(CustomerDbContext context)
         {
             _context = context;

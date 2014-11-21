@@ -1,4 +1,6 @@
-﻿using Microsoft.Owin;
+﻿using System;
+using System.Web.Hosting;
+using Microsoft.Owin;
 using Owin;
 using PayMe.Web.Infrastructure.Configuration;
 
@@ -10,6 +12,9 @@ namespace Payme.Website.Configuration
         // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=316888
         public void Configuration(IAppBuilder app)
         {
+            // Required in web.config by SqlCe connection
+            AppDomain.CurrentDomain.SetData("DataDirectory", HostingEnvironment.MapPath("~/App_Data/"));
+
             var builder = new ConfigurationBuilder(app);
             builder.Build();
         }

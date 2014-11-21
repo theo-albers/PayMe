@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics.Contracts;
 using System.Web.Http;
+using Newtonsoft.Json.Serialization;
 using Owin;
 
 namespace PayMe.Web.Infrastructure.Configuration
@@ -40,6 +41,10 @@ namespace PayMe.Web.Infrastructure.Configuration
         private static void CreateConfiguration(IAppBuilder app)
         {
             var config = new HttpConfiguration();
+
+            // Use camel case for JSON data.
+            config.Formatters.JsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+            
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
@@ -50,6 +55,8 @@ namespace PayMe.Web.Infrastructure.Configuration
             );
 
             app.UseWebApi(config);
+
+
         }
 
     }
