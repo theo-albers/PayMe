@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
-using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Reflection;
 using System.Web.Http;
@@ -11,6 +10,7 @@ using Autofac.Integration.WebApi;
 using Newtonsoft.Json.Serialization;
 using Owin;
 using PayMe.DomainModel.Customers;
+using PayMe.Runtime.Contracts;
 using PayMe.Web.Configuration.Dependencies;
 
 namespace PayMe.Web.Configuration
@@ -19,7 +19,7 @@ namespace PayMe.Web.Configuration
     {
         public void Configure(IAppBuilder app)
         {
-            Contract.Requires(app != null);
+            Argument.RequireNotNull(app, "app");
 
             var config = CreateHttpConfiguration();
             ConfigureWebApi(app, config);
@@ -76,6 +76,7 @@ namespace PayMe.Web.Configuration
             var builder = new ContainerBuilder();
             builder
                 .RegisterModule(new WebApiModule(config))
+                .RegisterModule(new EntityModelModule())
                 .RegisterModule(new DomainModelModule())
                 .RegisterModule(new ConfigurationSettingsReader());
 

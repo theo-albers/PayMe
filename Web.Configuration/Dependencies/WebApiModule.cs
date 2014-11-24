@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
-using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Reflection;
 using System.Web.Http;
 using Autofac;
 using Autofac.Integration.WebApi;
+using PayMe.Runtime.Contracts;
 
 namespace PayMe.Web.Configuration.Dependencies
 {
@@ -14,13 +14,15 @@ namespace PayMe.Web.Configuration.Dependencies
 
         public WebApiModule(HttpConfiguration config)
         {
-            Contract.Requires(config != null);
+            Argument.RequireNotNull(config, "config");
 
             _config = config;
         }
 
         protected override void Load(ContainerBuilder builder)
         {
+            Argument.RequireNotNull(builder, "builder");
+
             builder.RegisterApiControllers(GetControllerAssemblies(_config).ToArray());
 
             base.Load(builder);

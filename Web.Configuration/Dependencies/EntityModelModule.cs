@@ -4,13 +4,13 @@ using PayMe.Runtime.Contracts;
 
 namespace PayMe.Web.Configuration.Dependencies
 {
-    public class DomainModelModule : Module
+    public class EntityModelModule : Module
     {
         protected override void Load(ContainerBuilder builder)
         {
             Argument.RequireNotNull(builder, "builder");
 
-            builder.RegisterType<CustomerRepository>().As<ICustomerRepository>().InstancePerRequest();
+            builder.RegisterType<CustomerDbContext>().InstancePerRequest();
 
             base.Load(builder);
         }

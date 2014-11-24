@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using PayMe.Runtime.Contracts;
 
 namespace PayMe.DomainModel.Customers
 {
@@ -8,13 +9,10 @@ namespace PayMe.DomainModel.Customers
     {
         private readonly CustomerDbContext _context;
 
-        public CustomerRepository() 
-            : this(new CustomerDbContext())
-        {
-        }
-
         public CustomerRepository(CustomerDbContext context)
         {
+            Argument.RequireNotNull(context, "context");
+
             _context = context;
         }
 

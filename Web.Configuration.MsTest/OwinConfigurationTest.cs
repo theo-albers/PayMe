@@ -1,6 +1,5 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using PayMe.UnitTesting.Infrastructure;
 
 namespace PayMe.Web.Configuration
 {
@@ -8,7 +7,7 @@ namespace PayMe.Web.Configuration
     public class OwinConfigurationTest
     {
         [TestMethod]
-        [ExpectContractFailure]
+        [ExpectedException(typeof(ArgumentNullException))]
         public void Constructor_failOnNull()
         {
             var subject = new OwinConfiguration();
