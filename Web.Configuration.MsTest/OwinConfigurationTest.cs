@@ -1,21 +1,20 @@
 ﻿using System;
-using System.Globalization;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using PayMe.UnitTesting.Infrastructure;
-using PayMe.Web.Infrastructure.Configuration;
 
-namespace PayMe.Web.Infrastructure.MsTest.Configuration
+namespace PayMe.Web.Configuration
 {
     [TestClass]
-    public class ConfigurationBuilderTest
+    public class OwinConfigurationTest
     {
         [TestMethod]
         [ExpectContractFailure]
         public void Constructor_failOnNull()
         {
-            var subject = new ConfigurationBuilder(null);
+            var subject = new OwinConfiguration();
+
+            // Run test
+            subject.Configure(null);
         }
     }
-
-    
 }

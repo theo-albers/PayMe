@@ -2,7 +2,7 @@
 using System.Web.Hosting;
 using Microsoft.Owin;
 using Owin;
-using PayMe.Web.Infrastructure.Configuration;
+using PayMe.Web.Configuration;
 
 [assembly: OwinStartup(typeof(Payme.Website.Configuration.Bootstrap))]
 namespace Payme.Website.Configuration
@@ -15,8 +15,8 @@ namespace Payme.Website.Configuration
             // Required in web.config by SqlCe connection
             AppDomain.CurrentDomain.SetData("DataDirectory", HostingEnvironment.MapPath("~/App_Data/"));
 
-            var builder = new ConfigurationBuilder(app);
-            builder.Build();
+            var owin = new OwinConfiguration();
+            owin.Configure(app);
         }
     }
 }

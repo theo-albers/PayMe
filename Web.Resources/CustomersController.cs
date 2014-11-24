@@ -8,11 +8,6 @@ namespace PayMe.Web.Resources
     {
         private readonly ICustomerRepository _repository;
 
-        public CustomersController()
-            : this (new CustomerRepository())
-        {
-        }
-
         public CustomersController(ICustomerRepository repository)
         {
             _repository = repository;
