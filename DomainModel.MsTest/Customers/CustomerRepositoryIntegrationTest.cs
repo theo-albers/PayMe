@@ -13,6 +13,7 @@ namespace PayMe.DomainModel.Customers
         [AssemblyInitialize]
         public static void Initialize(TestContext context)
         {
+            AppDomain.CurrentDomain.SetData("DataDirectory", Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments));
             Database.SetInitializer<CustomerDbContext>(new CustomerDbInitializer());
         }
 

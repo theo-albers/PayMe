@@ -117,7 +117,16 @@
     <Reference Include="System.Web.Services" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="build\Gruntfile.js" />
+    <Content Include="index.html" />
     <Content Include="packages.config" />
+    <Content Include="common\resources\sass\_environment.scss" />
+    <Content Include="common\resources\sass\_colors.scss" />
+    <Content Include="common\resources\sass\common-style.scss" />
+    <Content Include="build\config.rb" />
+    <None Include="build\install.grunt.cmd" />
+    <None Include="build\package.json" />
+    <None Include="build\run-grunt.cmd" />
     <None Include="_bin_deployableAssemblies\x86\sqlcese40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceqp40.dll" />
     <None Include="_bin_deployableAssemblies\x86\sqlceme40.dll" />
@@ -173,6 +182,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="common\libs\" />
+    <Folder Include="common\resources\css\" />
+    <Folder Include="common\resources\fonts\" />
+    <Folder Include="common\resources\images\" />
+    <Folder Include="common\specs\" />
+    <Folder Include="common\src\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,0 +1,8 @@
+﻿@import "_environment.scss";
+@import "_colors.scss";
+
+$section-background:             $color-white !default;
+
+body {
+    background-color: $section-background; 
+}
