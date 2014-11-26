@@ -1,0 +1,11 @@
+{
+  "name": "PayMe.Website.JsTest",
+  "version": "0.1.0",
+  "devDependencies": {
+    "chai": "^1.10.0",
+    "grunt": "^0.4.5",
+    "mocha": "^2.0.1",
+    "mocha-phantomjs": "^3.5.1",
+    "phantomjs": "^1.9.12"
+  }
+}

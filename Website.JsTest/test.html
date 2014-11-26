@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="build/node_modules/mocha/mocha.css" />
+    <title>JavaScript tests</title>
+</head>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<body>
+    <div id="mocha"></div>
+    <script src="build/node_modules/mocha/mocha.js"></script>
+    <script src="build/node_modules/chai/chai.js"></script>
+    <!--
+    <script src="chai.js"></script>
+        -->
+    <script>
+        mocha.ui('bdd');
+        mocha.reporter('html');
+        var assert = chai.assert;
+    </script>
+    <script src="test/test.js"></script>
+    <script>
+        if (window.mochaPhantomJS) { mochaPhantomJS.run(); }
+        else { mocha.run(); }
+    </script>
+</body>
+</html>
