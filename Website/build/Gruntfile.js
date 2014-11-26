@@ -13,10 +13,31 @@ module.exports = function (grunt) {
             }
         },
 
+        // https://github.com/gruntjs/grunt-contrib-cssmin
+        cssmin: {
+            dev: {
+                options: {
+                    banner: '/* PayMe minified Style Sheet */'
+                },
+                files: [{
+                    expand: true,
+                    cwd: '../common/resources/css/',
+                    src: ['*.css', '!*.min.css'],
+                    dest: '../common/resources/css/',
+                    ext: '.min.css'
+                }]
+            }
+        },
+
         watch: {
             compass: {
                 files: ['../common/resources/sass/**/*.{scss,sass}'],
                 tasks: ['compass:dev']
+            },
+
+            styles: {
+                files: ['../common/resources/*.css', '!../common/resources/*.min.css'],
+                tasks: ['cssmin:dev']
             },
 
             /* watch our files for change, reload */
@@ -35,8 +56,7 @@ module.exports = function (grunt) {
 
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-compass');
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
 
-    //grunt.registerTask('dev', ['compass:dev']);
-    //grunt.registerTask('w', ['watch']);
-    grunt.registerTask('default', 'watch');
+    grunt.registerTask('default', ['compass:dev', 'cssmin:dev', 'watch']); //'watch');
 };
