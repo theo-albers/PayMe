@@ -52,10 +52,14 @@
     <Content Include="test\test.js" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="build\.bowerrc" />
+    <None Include="build\bower.json" />
+    <None Include="build\install.bower.cmd" />
     <None Include="build\install.mocha.cmd" />
     <None Include="build\package.json" />
     <None Include="build\run_mocha.bat" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
