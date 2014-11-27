@@ -64,3 +64,9 @@ Still we want a better structure for the bower package files, the core JS and CS
 See:
 - http://stackoverflow.com/questions/25023612/bower-and-gruntjs-concatenating-vendor-javascript-into-one-file
 - https://www.npmjs.org/package/bower-copy
+
+Add chutzpah
+------------
+- install two add ons http://blogs.msdn.com/b/matt-harrington/archive/2014/10/27/javascript-unit-testing-using-the-chutzpah-test-runner-in-visual-studio.aspx
+- restart VS
+- now amend the test\test.js file so chutzpah knows where to find mocha and chai
